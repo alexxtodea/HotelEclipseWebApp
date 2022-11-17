@@ -2,6 +2,7 @@ package com.example.springHotelApp.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.example.springHotelApp.model.Room;
 import com.example.springHotelApp.service.RoomService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/rooms")
 public class RoomController {
 

@@ -17,7 +17,7 @@ public class Room {
 	private String id;
 	private String roomType;
 	private String description;
-	private String image;
+	private String imageURL;
 	private Integer bedAmount;
 	private Integer price;
 	private Integer roomNumber;
@@ -34,11 +34,11 @@ public class Room {
 	}
 
 	public String getImage() {
-		return image;
+		return imageURL;
 	}
 
 	public void setImage(String image) {
-		this.image = image;
+		this.imageURL = image;
 	}
 
 	public Integer getBedAmount() {
@@ -83,7 +83,7 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return "Room [id=" + id + ", roomType=" + roomType + ", description=" + description + ", image=" + image
+		return "Room [id=" + id + ", roomType=" + roomType + ", description=" + description + ", image=" + imageURL
 				+ ", bedAmount=" + bedAmount + ", price=" + price + ", roomNumber=" + roomNumber + "]";
 	}
 	
