@@ -1,0 +1,39 @@
+name: hotelservice
+
+on:
+  push:
+    branches:
+      - '*'
+ 
+jobs:
+
+  owasp-scan-with-action:
+    runs-on: ubuntu-latest
+    name: depecheck_test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '8'
+      - name: Build project with Maven
+        run: mvn clean install --file pom.xml -DskipTests
+      - name: Depcheck
+        uses: dependency-check/Dependency-Check_Action@main
+        id: Depcheck
+        env:
+          JAVA_HOME: /opt/jdk #override from actions/setup-java@v2 as it needs to be the path inside the Dockerfile https://github.com/jeremylong/DependencyCheck/blob/main/Dockerfile
+        with:
+          project: 'HotelService'
+          path: '.'
+          format: 'HTML'
+          args: >
+            --failOnCVSS 7
+            --enableRetired
+      - name: Upload Test results
+        uses: actions/upload-artifact@master
+        with:
+          name: Depcheck report
+          path: ${{github.workspace}}/reports
