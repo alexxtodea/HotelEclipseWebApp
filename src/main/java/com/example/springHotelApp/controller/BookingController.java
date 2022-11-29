@@ -57,14 +57,14 @@ public class BookingController {
     
     
     @PostMapping("/add")
-    public ResponseEntity<Booking> addBooking(@RequestBody Booking bookingDTO) {
-        Booking newBooking = bookingService.addBooking(bookingDTO);       
+    public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
+        Booking newBooking = bookingService.addBooking(booking);       
         return new ResponseEntity<>(newBooking,HttpStatus.CREATED);
     }
     
     @PutMapping("/update")
-    public ResponseEntity<Booking> updateBooking(@RequestBody Booking bookingDTO) {
-        Booking updateBooking = bookingService.updateBooking(bookingDTO);     
+    public ResponseEntity<Booking> updateBooking(@RequestBody Booking booking) {
+        Booking updateBooking = bookingService.updateBooking(booking);     
         return new ResponseEntity<>(updateBooking,HttpStatus.OK);
     }
     
