@@ -17,7 +17,6 @@ public interface RoomRepository extends MongoRepository<Room, Integer> {
 
     List<Booking> findBookingById(String id);
 
-    //Booking saveBooking(Booking booking);
   
 }
  

@@ -1,10 +1,6 @@
 package com.example.springHotelApp.service;
 
 import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-
 import com.example.springHotelApp.model.Booking;
 import com.example.springHotelApp.model.Room;
 

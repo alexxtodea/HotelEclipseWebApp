@@ -2,7 +2,6 @@ package com.example.springHotelApp.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -29,15 +28,6 @@ public class Room {
     @DBRef
     private List<Booking> bookings = new ArrayList<>();
 	
-	
-	public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
-
     public List<Booking> getBookings() {
         return bookings;
     }
@@ -54,11 +44,11 @@ public class Room {
 		this.description = description;
 	}
 
-	public String getImage() {
+	public String getImageURL() {
 		return imageURL;
 	}
 
-	public void setImage(String image) {
+	public void setImageURL(String image) {
 		this.imageURL = image;
 	}
 
