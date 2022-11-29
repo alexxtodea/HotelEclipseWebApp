@@ -1,7 +1,11 @@
 package com.example.springHotelApp.model;
 
-import org.springframework.data.annotation.Id;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -22,10 +26,27 @@ public class Room {
 	private Integer price;
 	private Integer roomNumber;
 	
+    @DBRef
+    private List<Booking> bookings = new ArrayList<>();
 	
 	
-	
-	public String getDescription() {
+	public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public String getDescription() {
 		return description;
 	}
 
@@ -86,6 +107,11 @@ public class Room {
 		return "Room [id=" + id + ", roomType=" + roomType + ", description=" + description + ", image=" + imageURL
 				+ ", bedAmount=" + bedAmount + ", price=" + price + ", roomNumber=" + roomNumber + "]";
 	}
+
+    public Booking addBooking(Booking booking) {
+        bookings.add(booking);
+        return booking;
+    }
 	
 	
 	

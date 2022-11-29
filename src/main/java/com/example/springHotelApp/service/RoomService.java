@@ -2,7 +2,10 @@ package com.example.springHotelApp.service;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.springHotelApp.model.Booking;
 import com.example.springHotelApp.model.Room;
 
 public interface RoomService {
@@ -11,4 +14,6 @@ public interface RoomService {
 	 public Room updateRoom(Room room);
 	 void deleteRoom(String id);
 	 Room findRoomById(String id);
+     public List<Booking> findBookingsById(String id);
+     Booking addBookingToRoom(Room room, Booking booking);
 }

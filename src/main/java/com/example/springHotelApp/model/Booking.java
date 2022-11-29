@@ -1,5 +1,8 @@
 package com.example.springHotelApp.model;
-import org.joda.time.DateTime;
+
+import java.time.ZonedDateTime;
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,8 +21,8 @@ public class Booking {
     @Id
     private String id;
     private Room room;
-    private DateTime timeOfArrival;
-    private DateTime timeOfDeparture;
+    private Date timeOfArrival;
+    private Date timeOfDeparture;
     private Integer amountDaysStay;
     private String bookerFullName;
     private String bookerEmail;
@@ -34,21 +37,11 @@ public class Booking {
     public Room getRoom() {
         return room;
     }
+
     public void setRoom(Room room) {
         this.room = room;
     }
-    public DateTime getTimeOfArrival() {
-        return timeOfArrival;
-    }
-    public void setTimeOfArrival(DateTime timeOfArrival) {
-        this.timeOfArrival = timeOfArrival;
-    }
-    public DateTime getTimeOfDeparture() {
-        return timeOfDeparture;
-    }
-    public void setTimeOfDeparture(DateTime timeOfDeparture) {
-        this.timeOfDeparture = timeOfDeparture;
-    }
+
     public Integer getAmountDaysStay() {
         return amountDaysStay;
     }
@@ -72,6 +65,18 @@ public class Booking {
     }
     public void setAmountOfGuests(Integer amountOfGuests) {
         this.amountOfGuests = amountOfGuests;
+    }
+    public Date getTimeOfArrival() {
+        return timeOfArrival;
+    }
+    public void setTimeOfArrival(Date timeOfArrival) {
+        this.timeOfArrival = timeOfArrival;
+    }
+    public Date getTimeOfDeparture() {
+        return timeOfDeparture;
+    }
+    public void setTimeOfDeparture(Date timeOfDeparture) {
+        this.timeOfDeparture = timeOfDeparture;
     }   
 
 }

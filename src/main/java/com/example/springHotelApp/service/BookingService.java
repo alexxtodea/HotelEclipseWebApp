@@ -11,4 +11,5 @@ public interface BookingService {
      public Booking updateBooking(Booking booking);
      void deleteBooking(String id);
      Booking findBookingById(String id);
+//    public List<Booking> findByRoomId(String id);     
 }
