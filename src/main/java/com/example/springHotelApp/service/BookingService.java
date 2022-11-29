@@ -10,6 +10,5 @@ public interface BookingService {
      public List<Booking> getAllBookings();
      public Booking updateBooking(Booking booking);
      void deleteBooking(String id);
-     Booking findBookingById(String id);
-//    public List<Booking> findByRoomId(String id);     
+     Booking findBookingById(String id);  
 }

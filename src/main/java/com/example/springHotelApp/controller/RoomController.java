@@ -27,7 +27,6 @@ public class RoomController {
 
     @Autowired
     private RoomService roomService;
-    private BookingService bookingService;
 
     @GetMapping("/getAll")
     public ResponseEntity<List<Room>> getRooms() {
