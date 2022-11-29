@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 
 import com.example.springHotelApp.model.Booking;
 import com.example.springHotelApp.service.BookingService;
-import com.example.springHotelApp.service.RoomService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
@@ -38,21 +37,7 @@ public class BookingController {
         Booking booking = bookingService.findBookingById(id);
         return new ResponseEntity<>(booking,HttpStatus.OK);
     }
-    
-    
-    
-//    @GetMapping("/{id}/bookings")
-//    public ResponseEntity<List<Booking>> getAllBookingsByRoomId(@PathVariable(value = "id") String id) {
-//      if (!RoomService.existsById(id)) {
-//        throw new ResourceNotFoundException("Not found Tutorial with id = " + id);
-//    }
-//      List<Booking> bookings = bookingService.findByRoomId(id);
-//      return new ResponseEntity<>(bookings, HttpStatus.OK);
-//    }
-
-    
-    
-    
+         
     
     @PostMapping("/add")
     public ResponseEntity<Booking> addBooking(@RequestBody Booking booking) {
