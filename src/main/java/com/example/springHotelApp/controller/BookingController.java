@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import com.example.springHotelApp.model.Booking;
 import com.example.springHotelApp.service.BookingService;
 
+@EnableAsync
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping("/booking")
@@ -26,8 +29,15 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
+    
     @GetMapping("/getAll")
     public ResponseEntity<List<Booking>> getBookings() {
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
         List<Booking> bookings = bookingService.getAllBookings();
         return new ResponseEntity<>(bookings,HttpStatus.OK);
     }
