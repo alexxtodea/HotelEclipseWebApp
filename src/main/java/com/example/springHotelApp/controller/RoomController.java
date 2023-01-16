@@ -30,6 +30,13 @@ public class RoomController {
     @Autowired
     private RoomService roomService;
 
+    public RoomController() {
+    }
+    
+    public RoomController(RoomService roomService) {
+        this.roomService = roomService;
+    }
+    
     @GetMapping("/getAll")
     public ResponseEntity<List<Room>> getRooms() {
         List<Room> rooms = roomService.getAllRooms();
@@ -39,7 +46,12 @@ public class RoomController {
     @GetMapping("/find/{id}")
     public ResponseEntity<Room> getRoomById(@PathVariable("id") String id) {
         Room room = roomService.findRoomById(id);
-        return new ResponseEntity<>(room, HttpStatus.OK);
+        
+        if (room != null) {
+            return new ResponseEntity<>(room, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/bookings/{id}")
